@@ -23,22 +23,22 @@
     <ul class="list-group">
       <li
         class="list-group-item"
-        *ngFor="let tutorial of tutorials; let i = index"
+        *ngFor="let movie of movies; let i = index"
         [class.active]="i == currentIndex"
-        (click)="setActiveTutorial(tutorial, i)"
+        (click)="setActiveTutorial(movie, i)"
       >
-        {{ tutorial.title }}
+        {{ movie.Title }}
       </li>
     </ul>
 
-    <button class="m-3 btn btn-sm btn-danger" (click)="removeAllTutorials()">
+    <!-- <button class="m-3 btn btn-sm btn-danger" (click)="removeAllTutorials()">
       Remove All
-    </button>
+    </button> -->
   </div>
   <div class="col-md-6">
-    <app-tutorial-details
+    <!-- <app-tutorial-details
       [viewMode]="true"
-      [currentTutorial]="currentTutorial"
-    ></app-tutorial-details>
+      [currentTutorial]="currentMovie"
+    ></app-tutorial-details> -->
   </div>
 </div>

@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Tutorial } from 'src/app/models/tutorial.model';
 import { TutorialService } from 'src/app/services/tutorial.service';
+import { MovieService } from 'src/app/services/movie.service';
+import { Movie } from 'src/app/models/Movie';
 
 @Component({
   selector: 'app-tutorials-list',
@@ -8,55 +10,60 @@ import { TutorialService } from 'src/app/services/tutorial.service';
   styleUrls: ['./tutorials-list.component.css'],
 })
 export class TutorialsListComponent {
-  tutorials?: Tutorial[];
-  currentTutorial: Tutorial = {};
+  movies?: Movie[];
+  //currentMovie: Movie = {};
   currentIndex = -1;
   title = '';
-
-  constructor(private tutorialService: TutorialService) {}
+  userId?: number;
+  constructor(private tutorialService: TutorialService, private movieService: MovieService) {}
 
   ngOnInit(): void {
     this.retrieveTutorials();
   }
 
   retrieveTutorials(): void {
-    this.tutorialService.getAll().subscribe({
+    var userStore = localStorage.getItem("userId");
+    this.userId = 1;
+    if(userStore != null){
+      this.userId = Number.parseInt(userStore);
+    }
+    this.movieService.getByUser(this.userId).subscribe({
       next: (data) => {
-        this.tutorials = data;
+        this.movies = data;
         console.log(data);
       },
       error: (e) => console.error(e)
     });
   }
 
-  refreshList(): void {
-    this.retrieveTutorials();
-    this.currentTutorial = {};
-    this.currentIndex = -1;
-  }
+   refreshList(): void {
+  //   this.retrieveTutorials();
+  //   this.currentMovie = {};
+  //   this.currentIndex = -1;
+   }
 
-  setActiveTutorial(tutorial: Tutorial, index: number): void {
-    this.currentTutorial = tutorial;
-    this.currentIndex = index;
-  }
+   setActiveTutorial(movie: Movie, index: number): void {
+  //   this.currentMovie = tutorial;
+  //   this.currentIndex = index;
+   }
 
-  removeAllTutorials(): void {
-    this.tutorialService.deleteAll().subscribe({
-      next: (res) => {
-        console.log(res);
-        this.refreshList();
-      },
-      error: (e) => console.error(e)
-    });
-  }
+   removeAllTutorials(): void {
+  //   this.tutorialService.deleteAll().subscribe({
+  //     next: (res) => {
+  //       console.log(res);
+  //       this.refreshList();
+  //     },
+  //     error: (e) => console.error(e)
+  //   });
+   }
 
   searchTitle(): void {
-    this.currentTutorial = {};
-    this.currentIndex = -1;
+    // this.currentMovie = {};
+    // this.currentIndex = -1;
 
-    this.tutorialService.findByTitle(this.title).subscribe({
+    this.movieService.getByUser(1).subscribe({
       next: (data) => {
-        this.tutorials = data;
+        this.movies = data;
         console.log(data);
       },
       error: (e) => console.error(e)
