@@ -1,0 +1,17 @@
+<div class="centerDiv">
+    <br>
+<form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
+
+    <label for="user-name">User Name: </label>
+    <input id="user-name" type="text" formControlName="username">
+    <br>
+    <label for="password">Last Name: </label>
+    <input id="password" type="text" formControlName="password">
+    <br>
+    <button type="submit">Login</button>
+    <a [routerLink]="['/','register']">Register</a>
+</form>
+<br>
+
+</div>
+

@@ -1,0 +1,17 @@
+<div class="centerDiv">
+    <br>
+<form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
+    <label for="user-name">User Name: </label>
+    <input id="user-name" type="text" formControlName="username">
+    <br>
+    <label for="password">Password: </label>
+    <input id="password" type="text" formControlName="password">
+    <br>
+    <label class="lbleft" for="email">Email: </label>
+    <input id="email" type="text" formControlName="email">
+    <br>
+    <button type="submit">Register</button>
+</form>
+<br>
+
+</div>
