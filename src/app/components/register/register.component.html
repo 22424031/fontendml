@@ -1,14 +1,36 @@
 <div class="centerDiv">
     <br>
 <form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
-    <label for="user-name">User Name: </label>
-    <input id="user-name" type="text" formControlName="username">
-    <br>
-    <label for="password">Password: </label>
-    <input id="password" type="text" formControlName="password">
-    <br>
-    <label class="lbleft" for="email">Email: </label>
-    <input id="email" type="text" formControlName="email">
+    <div class="divRow">
+        <label  for="user-name">User Name: </label>
+        <input id="user-name" type="text" formControlName="username">
+    </div>
+  
+    <div class="divRow">
+        <label  for="password">Password:</label>
+        <input  id="password" type="text" formControlName="password">
+    </div>
+ 
+    <div class="divRow">
+        <label  for="gender">Gender: </label>
+        <input id="gender" type="text" formControlName="gender">
+    </div>
+
+    <div class="divRow">
+        <label  for="age">Age: </label>
+        <input id="age" type="text" formControlName="age">
+    </div>
+
+    <div class="divRow">
+        <label  for="occupation">occupation: </label>
+        <input id="occupation" type="text" formControlName="occupation">
+    </div>
+
+    <div class="divRow">
+        <label  for="zip_code">zip_code: </label>
+        <input id="zip_code" type="text" formControlName="zip_code">
+    </div>
+    
     <br>
     <button type="submit">Register</button>
 </form>

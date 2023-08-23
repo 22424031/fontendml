@@ -13,7 +13,10 @@ export class RegisterComponent {
   profileForm = new FormGroup({
     username: new FormControl(''),
     password: new FormControl(''),
-    email: new FormControl(''),
+    gender: new FormControl(''),
+    age: new FormControl(''),
+    occupation: new FormControl(''),
+    zip_code: new FormControl('')
   });
   user?: User;
   constructor(private router: Router, private userService:UserService){
@@ -22,8 +25,14 @@ export class RegisterComponent {
   onSubmit() {
     // TODO: Use EventEmitter with form value
     console.log(this.profileForm.value);
-    let postData = {username : this.profileForm.value.username,email : this.profileForm.value.email ,password :this.profileForm.value.password};
-    var resonse = this.userService.create(postData).subscribe(rs => console.log(rs));
+    let postData = {occupazip_codetion : this.profileForm.value.zip_code,occupation : this.profileForm.value.occupation,age : this.profileForm.value.age,username : this.profileForm.value.username,gender : this.profileForm.value.gender ,password :this.profileForm.value.password};
+    var resonse = this.userService.create(postData).subscribe(rs => {
+      console.log(rs)
+      alert(rs["message"]);
+      
+      this.router.navigate(['/','tutorials']);
+    });
+    
   }
   register(){
     this.router.navigate(['/','register']);

@@ -1,9 +1,16 @@
 .centerDiv{
     display: flex;
-    text-align: center;
     align-items: center;
     flex-direction: column;
 }
 .lbleft {
-    margin-right: 35px;
+    margin-right: 20px;
+text-align: right;
+}
+.divRow{
+    display: flex;
+    flex-direction: column;
+}
+.tf{
+    margin-left: 0px;
 }

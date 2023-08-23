@@ -60,8 +60,8 @@ export class TutorialsListComponent {
   searchTitle(): void {
     // this.currentMovie = {};
     // this.currentIndex = -1;
-
-    this.movieService.getByUser(1).subscribe({
+    let postData = {userId : 1,keyWord : this.title};
+    this.movieService.getByUser(postData).subscribe({
       next: (data) => {
         this.movies = data;
         console.log(data);

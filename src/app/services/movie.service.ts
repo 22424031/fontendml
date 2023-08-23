@@ -4,7 +4,7 @@ import { Observable } from 'rxjs';
 import {Movie} from '../models/Movie'
 
 const urlsuggest = 'http://localhost:5000/api/suggest';
-const urlGetByUserId = 'http://localhost:5000/api/get-movies-byuserid/';
+const urlGetByUserId = 'http://localhost:5000/api/search';
 @Injectable({
   providedIn: 'root'
 })
@@ -15,8 +15,8 @@ export class MovieService {
   getAll():Observable<Movie[]>{
     return this.httpclient.get<Movie[]>(urlsuggest);
   }
-  getByUser(userId:number):Observable<Movie[]>{
-    return this.httpclient.get<Movie[]>(urlGetByUserId+userId);
+  getByUser(obRequest:any):Observable<Movie[]>{
+    return this.httpclient.post<Movie[]>(urlGetByUserId,obRequest);
   }
 
   
