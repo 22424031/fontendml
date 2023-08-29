@@ -5,6 +5,7 @@ import { Observable } from 'rxjs';
 
 const urlregister = 'http://localhost:5000/api/register';
 const urlLogin = 'http://localhost:5000/api/login';
+const urlGetByUserId = 'http://localhost:5000/api/user';
 @Injectable({
   providedIn: 'root'
 })
@@ -17,5 +18,8 @@ export class UserService {
   }
   login(data: any): Observable<any> {
     return this.http.post(urlLogin, data);
+  }
+  getbyuser(data: any): Observable<any> {
+    return this.http.post(urlGetByUserId, data);
   }
 }

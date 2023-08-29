@@ -14,18 +14,20 @@ export class TutorialsListComponent {
   //currentMovie: Movie = {};
   currentIndex = -1;
   title = '';
-  userId?: number;
+  userId?: number | null;
   constructor(private tutorialService: TutorialService, private movieService: MovieService) {}
 
   ngOnInit(): void {
-    this.retrieveTutorials();
+    //this.retrieveTutorials();
   }
 
   retrieveTutorials(): void {
     var userStore = localStorage.getItem("userId");
-    this.userId = 1;
     if(userStore != null){
       this.userId = Number.parseInt(userStore);
+    }
+    else{
+      this.userId = 1;
     }
     this.movieService.getByUser(this.userId).subscribe({
       next: (data) => {

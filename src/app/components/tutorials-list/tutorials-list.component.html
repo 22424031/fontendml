@@ -21,6 +21,9 @@
   <div class="col-md-6">
     <h4>Video List</h4>
     <ul class="list-group">
+      <li style="color: red;" *ngIf="movies?.length == 0">
+        'Video not found with key search'
+      </li>
       <li
         class="list-group-item"
         *ngFor="let movie of movies; let i = index"
