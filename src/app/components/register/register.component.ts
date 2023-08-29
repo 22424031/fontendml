@@ -29,7 +29,7 @@ export class RegisterComponent {
     var resonse = this.userService.create(postData).subscribe(rs => {
       console.log(rs)
       alert(rs["message"]);
-      
+      localStorage.setItem("userId", rs["userId"]);
       this.router.navigate(['/','tutorials']);
     });
     
